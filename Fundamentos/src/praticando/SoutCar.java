@@ -4,15 +4,29 @@ public class SoutCar {
     public static void main(String[] args) {
 
 
-        Car car = new Car("Aventador SVJ", "Lamborghini Aventador SVJ", "Lamborghini", "Black", true, 4, 2020, "");
+        Car lambo = new Car("Aventador", "Lamborghini Aventador SVJ", "Lamborghini", EnumCarColor.BLACK, true, 4, 2020);
 
-        System.out.println(car);
+        System.out.println(lambo);
 
-        car.ligandoCarro();
-        System.out.println(car);
+        lambo.ligandoCarro();
+        System.out.println(lambo);
 
-        car.andando();
-        System.out.println(car);
+        lambo.trocarDeMarcha(MarchaEnum.PRIMEIRA_MARCHA);
+        lambo.andando();
+        System.out.println(lambo);
+        lambo.trocarDeMarcha(MarchaEnum.SEGUNDA_MARCHA);
+        System.out.println(lambo);
+        lambo.trocarDeMarcha(MarchaEnum.TERCEIRA_MARCHA);
+        System.out.println(lambo);
+        lambo.trocarDeMarcha(MarchaEnum.QUARTA_MARCHA);
+        System.out.println(lambo);
+        lambo.trocarDeMarcha(MarchaEnum.QUINTA_MARCHA);
+        System.out.println(lambo);
+        lambo.trocarDeMarcha(MarchaEnum.SEXTA_MARCHA);
+        System.out.println(lambo);
+
 
     }
+
+
 }

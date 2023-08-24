@@ -5,28 +5,59 @@ public class Car {
     private String model;
     private String name;
     private String marca;
-    private String color;
+    private EnumCarColor enumCarColor;
     private boolean temRodas;
     private int qtdRodas;
     private int ano;
     private String situation;
+    private MarchaEnum marchaEnum;
+    private int marcha;
 
+    public Car(int marcha) {
+        this.marcha = marcha;
+    }
 
-    public Car(String model, String name, String marca, String color, boolean temRodas, int qtdRodas, int ano, String situation) {
+    public MarchaEnum getMarchaEnum() {
+        return marchaEnum;
+    }
+
+    public void setMarchaEnum(MarchaEnum marchaEnum) {
+        this.marchaEnum = marchaEnum;
+    }
+
+    public Car(MarchaEnum marchaEnum) {
+        this.marchaEnum = marchaEnum;
+    }
+
+    public MarchaEnum marchaEnum() {
+        return marchaEnum;
+    }
+
+    public void setMarcha(MarchaEnum marchaEnum) {
+        this.marchaEnum = marchaEnum;
+    }
+
+    public Car(String model, String name, String marca, EnumCarColor enumCarColor, boolean temRodas, int qtdRodas, int ano) {
         this.model = model;
         this.name = name;
         this.marca = marca;
-        this.color = color;
+        this.enumCarColor = enumCarColor;
         this.temRodas = temRodas;
         this.qtdRodas = qtdRodas;
         this.ano = ano;
         this.situation = "Carro ligado";
+        this.marchaEnum = MarchaEnum.NEUTRO;
     }
 
 
 
     public void ligandoCarro(){
         this.situation = "Ligando";
+
+    }
+    public void trocarDeMarcha(MarchaEnum marcha){
+        this.marcha = marcha.getNumeroMarcha();
+        this.marchaEnum = marcha;
     }
     public void andando(){
         this.situation = "Andando";
@@ -56,12 +87,12 @@ public class Car {
         this.marca = marca;
     }
 
-    public String getColor() {
-        return color;
+    public EnumCarColor getEnumCarColor() {
+        return enumCarColor;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setEnumCarColor(EnumCarColor enumCarColor) {
+        this.enumCarColor = enumCarColor;
     }
 
     public boolean isTemRodas() {
@@ -103,11 +134,13 @@ public class Car {
                 "model='" + model + '\'' +
                 ", name='" + name + '\'' +
                 ", marca='" + marca + '\'' +
-                ", color='" + color + '\'' +
+                ", enumCarColor=" + enumCarColor +
                 ", temRodas=" + temRodas +
                 ", qtdRodas=" + qtdRodas +
                 ", ano=" + ano +
                 ", situation='" + situation + '\'' +
+                ", marchaEnum=" + marchaEnum +
+                ", marcha=" + marcha +
                 '}';
     }
 }
